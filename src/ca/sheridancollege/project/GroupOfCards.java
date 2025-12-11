@@ -33,6 +33,15 @@ public class GroupOfCards {
     public ArrayList<Card> getCards() {
         return cards;
     }
+    
+    ///
+    /// @MODIFIED BY GRAHAM -- ADDED A SETTER, TO SHUFFLE, WE HAVE TO ADD OUR
+    /// BLACKJACK CARDS TO THIS GROUPOFCARDS. OTHERWISE, "cards" on line 21
+    /// is null and shuffle will not work
+    ///
+    public void setCards(ArrayList<Card> cards) {
+        this.cards = cards;
+    }
 
     public void shuffle() {
         Collections.shuffle(cards);

@@ -11,15 +11,37 @@ package ca.sheridancollege.project;
  *
  * @author dancye
  */
-public abstract class Card {
-    //default modifier for child classes
 
-    /**
-     * Students should implement this method for their specific children classes
-     *
-     * @return a String representation of a card. Could be an UNO card, a regular playing card etc.
-     */
+// @modified by Graham
+// added constructor including Rank/Suit, a toString method, as well as
+// an abstract method to get the Value of the card. classes that 
+// inherit from Card USUALLY will want a value, so i figure its a good
+// implementation for most card games
+public abstract class Card {
+    
+    Rank rank;
+    Suit suit;
+    
+    public Card(Rank rank, Suit suit) {
+        this.rank = rank;
+        this.suit = suit;
+    }
+    
+    public Rank getRank() {
+        return rank;
+    }
+    
+    public Suit getSuit() {
+        return suit;
+    }
+    
+    // to be utilized in BlackJackCard, or future games with normal card values
+    public abstract int getValue();
+    
     @Override
-    public abstract String toString();
+    // modified toString to show Rank and Suit 
+    public String toString(){
+        return rank + " OF " + suit;
+    };
 
 }
